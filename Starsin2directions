@@ -1,0 +1,44 @@
+stars_x = []
+stars_y = [] 
+
+shooting_x = []
+shooting_y = []
+
+def setup():
+    size(800, 800)
+    
+    for i in range(800):
+        stars_x.append(random(800))
+        stars_y.append(random(800))
+        
+        shooting_x.append(random(800))
+        shooting_y.append(random(800))
+     
+def draw():
+    background(0)
+    
+    fill(random(255), 0, 0)
+    for i in range(800):
+        fill(random(255), 0, 0)
+        ellipse(stars_x[i], stars_y[i], 10, 10)
+        stars_x[i] = stars_x[i] + 800
+        stars_y[i] = stars_y[i] + 800
+        
+        if stars_x[i] > 800:
+            stars_x[i] = random(800)
+        if stars_y[i] > 800:
+            stars_y[i] = random(800)
+        
+    for i in range(800):
+        yellow = random(255)
+        fill(yellow, yellow, 0)
+        ellipse(shooting_x[i], shooting_y[i], 10, 10)
+        shooting_x[i] = shooting_x[i] - 800
+        shooting_y[i] = shooting_y[i] + 800
+
+        if shooting_x[i] < 0:
+            shooting_x[i] = random(800)
+        if shooting_y[i] > 800:
+            shooting_y[i] = random(800)
+
+    
